@@ -18,11 +18,12 @@
 	<div class="poke-container">
 		<c:forEach items="${pokemonList}" var="pokemon">
 			<div class="poke-card">
-				<p><c:out value="${pokemon.name}" /></p>
+				<p>
+					<c:out value="${pokemon.name}" />
+				</p>
 				<img src="${pokemon.img}" width="100" height="100">
 			</div>
 		</c:forEach>
-
 	</div>
 
 </body>
