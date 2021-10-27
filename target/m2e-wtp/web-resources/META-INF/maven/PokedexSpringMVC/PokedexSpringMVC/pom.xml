@@ -5,12 +5,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 
-
 	<groupId>PokedexSpringMVC</groupId>
 	<artifactId>PokedexSpringMVC</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-
 
 
 	<name>PokedexSpringMVC</name>
@@ -19,20 +17,11 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.3.20.RELEASE</spring.version>
-		<tomcat.webapprunner.version>7.0.40.1</tomcat.webapprunner.version>
+		<tomcat.webapprunner.version>9.0.40.0</tomcat.webapprunner.version>
 		<java.version>1.7</java.version>
 	</properties>
 
 	<dependencies>
-
-		<!-- webapp runner dependencies, to be bundled with Tomcat to be run in 
-			cloud -->
-		<dependency>
-			<groupId>com.github.jsimone</groupId>
-			<artifactId>webapp-runner</artifactId>
-			<version>${tomcat.webapprunner.version}</version>
-			<scope>provided</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -119,18 +108,20 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.2.2</version>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
 					<execution>
 						<phase>package</phase>
-						<goals><goal>copy</goal></goals>
+						<goals>
+							<goal>copy</goal>
+						</goals>
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-									<groupId>com.github.jsimone</groupId>
+									<groupId>com.heroku</groupId>
 									<artifactId>webapp-runner</artifactId>
 									<version>9.0.41.0</version>
 									<destFileName>webapp-runner.jar</destFileName>
